@@ -1,0 +1,10 @@
+
+<hr />
+<input #gameName type="text" placeholder="game name" />
+<button (click)="createGame(gameName.value)">Create game</button>
+<hr />
+<ul>
+    <li *ngFor="let game of games | async">
+        <a href="#" (click)="subscribe(game.id)">{{game.name}}</a>
+    </li>
+</ul>

@@ -1,0 +1,18 @@
+<h3>Operator</h3>
+
+<div *ngIf="opts">
+    <table>
+        <tr>
+            <th>B</th>
+            <th>I</th>
+            <th>N</th>
+            <th>G</th>
+            <th>O</th>
+        </tr>
+        <tr *ngFor="let row of opts">
+            <td *ngFor="let r of row">
+                {{r}}
+            </td>
+        </tr>
+    </table>
+</div>
