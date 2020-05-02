@@ -7,21 +7,42 @@ import { AppComponent } from './app.component';
 import { MainComponent } from './main/main.component';
 import { OperatorComponent } from './operator/operator.component';
 import { PlayerComponent } from './player/player.component';
+import { PlayerCountComponent } from './components/player-count/player-count.component';
+import { GameStatusComponent } from './components/game-status/game-status.component';
+import { LastCalledComponent } from './components/last-called/last-called.component';
+import { BingoCellComponent } from './components/bingo-cell/bingo-cell.component';
+import { BingoCardComponent } from './components/bingo-card/bingo-card.component';
+import { WinnerComponent } from './components/winner/winner.component';
+import { SocketServiceSetupResolverService } from './socket-service-setup-resolver.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     MainComponent,
     OperatorComponent,
-    PlayerComponent
+    PlayerComponent,
+    PlayerCountComponent,
+    GameStatusComponent,
+    LastCalledComponent,
+    BingoCellComponent,
+    BingoCardComponent,
+    WinnerComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     RouterModule.forRoot([
       { path: '', component: MainComponent },
-      { path: 'player/:gameId/:cardId', component: PlayerComponent },
-      { path: 'operator/:gameId/:operatorHash', component: OperatorComponent },
+      {
+        path: 'player/:gameId/:playerId', component: PlayerComponent, resolve: {
+          setupService: SocketServiceSetupResolverService
+        }
+      },
+      {
+        path: 'operator/:gameId/:operatorHash', component: OperatorComponent, resolve: {
+          setupService: SocketServiceSetupResolverService
+        }
+      },
     ])
   ],
   providers: [],

@@ -5,6 +5,9 @@ import { Observable } from 'rxjs';
 import { map, merge } from 'rxjs/operators';
 import { BingoCard } from 'src/model/bingo-card';
 import { SocketioService } from '../socketio.service';
+import { Player } from 'src/model/player';
+import { PlayerCount } from 'src/model/player-count';
+import { Game } from 'src/model/game';
 
 @Component({
   selector: 'app-player',
@@ -13,19 +16,28 @@ import { SocketioService } from '../socketio.service';
 })
 export class PlayerComponent {
 
-  cardId: string;
+  playerId: string;
   gameId: string;
-  card: BingoCard;
+  player: Player;
+  game: Game;
+  bingoCards: BingoCard[];
+
   constructor(private service: BingoService, private socket: SocketioService, private route: ActivatedRoute) {
     this.route.paramMap.subscribe(params => {
-      this.cardId = params.get('cardId');
       this.gameId = params.get('gameId');
-      this.service.card(this.gameId, this.cardId).subscribe((card: BingoCard) => {
-        this.card = card;
-        this.socket.init(this.gameId, (c) => {
-          console.log('got call', c)
-        })
+      this.playerId = params.get('playerId');
+      this.service.player(this.gameId, this.playerId).subscribe((player: Player) => {
+        this.player = player;
+        this.bingoCards = Object.keys(player.bingoCards).map(cardId => player.bingoCards[cardId]);
+      });
+
+      this.service.game(this.gameId).subscribe((game: Game) => {
+        this.game = game;        
       });
     });
+  }
+
+  callBingo(cardId) {
+    this.socket.bingo(cardId);
   }
 }

@@ -3,8 +3,22 @@
 <input #gameName type="text" placeholder="game name" />
 <button (click)="createGame(gameName.value)">Create game</button>
 <hr />
-<ul>
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Status</th>
+        <th>Players</th>
+        <th>Join</th>
+    </tr>
+    <tr *ngFor="let game of games | async">
+        <td>{{game.name}}</td>
+        <td>{{game.status}}</td>
+        <td>{{game.players}}</td>
+        <td><a href="#" *ngIf="game.status == 'WAITING_FOR_PLAYERS'" (click)="subscribe(game.id)">join</a></td>
+    </tr>
+</table>
+<!-- <ul>
     <li *ngFor="let game of games | async">
         <a href="#" (click)="subscribe(game.id)">{{game.name}}</a>
     </li>
-</ul>
+</ul> -->

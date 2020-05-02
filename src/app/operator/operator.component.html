@@ -1,18 +1,11 @@
 <h3>Operator</h3>
 
-<div *ngIf="opts">
-    <table>
-        <tr>
-            <th>B</th>
-            <th>I</th>
-            <th>N</th>
-            <th>G</th>
-            <th>O</th>
-        </tr>
-        <tr *ngFor="let row of opts">
-            <td *ngFor="let r of row" (click)="operatorCall(r)">
-                {{r}}
-            </td>
-        </tr>
-    </table>
+<player-count></player-count>
+
+<div class="game" *ngIf="game">
+    <game-status></game-status>
+    <last-called></last-called>
+    <button type="button" *ngIf="game.status === 'WAITING_FOR_PLAYERS'" (click)="start()">START</button>
+    <button type="button" (click)="operatorCall()">CALL</button>
+    <bingo-card [card]="bingoCard"></bingo-card>
 </div>

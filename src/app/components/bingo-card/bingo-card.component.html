@@ -1,0 +1,21 @@
+<div class="card" *ngIf="card">
+    <div class="">{{card.id}}</div>
+    <div class="header row">
+        <div class="letter">B</div>
+        <div class="letter">I</div>
+        <div class="letter">N</div>
+        <div class="letter">G</div>
+        <div class="letter">O</div>
+    </div>
+    <div class="body">
+        <div class="row" *ngFor="let row of card.numbers;index as rowIndex">
+            <bingo-cell [cell]="cell" *ngFor="let cell of row;index as cellIndex" (click)="mark(rowIndex, cellIndex)"></bingo-cell>
+        </div>
+        
+    </div>
+    <div class="footer">
+        <button (click)="bingo()" *ngIf="card.id">BINGO!</button>
+    </div>
+
+
+</div>

@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { Game } from 'src/model/game';
 import { BingoCard } from 'src/model/bingo-card';
 import { Router } from '@angular/router';
+import { Player } from 'src/model/player';
 
 @Component({
   selector: 'app-main',
@@ -23,14 +24,13 @@ export class MainComponent implements OnInit {
 
   createGame(name: string) {
     this.service.createGame(name).subscribe((game: Game) => {
-      console.log(game)
       this.router.navigate([`/operator/${game.id}/${game.operatorHash}`]);
     });
   }
 
   subscribe(gameId: string) {
-    this.service.subscribe('random-string', gameId).subscribe((bingoCard: BingoCard) => {
-      this.router.navigate([`/player/${gameId}/${bingoCard.id}`]);
+    this.service.subscribe('random-string', gameId).subscribe((player: Player) => {
+      this.router.navigate([`/player/${gameId}/${player.id}`]);
     });
   }
 }

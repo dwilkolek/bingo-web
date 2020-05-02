@@ -1,0 +1,8 @@
+<p *ngIf="isItYou">You are the winner!</p>
+<p *ngIf="!isItYou && winner">You are <b>not</b> the winner!</p>
+
+<p *ngIf="winner">
+    Winners ID:{{ winner.player.id }}<br />
+    Winners Name: {{winner.player.name}}<br />
+    Winners Card ID: {{winner.cardId}}<br />
+</p>

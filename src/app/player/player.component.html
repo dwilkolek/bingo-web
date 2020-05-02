@@ -1,14 +1,7 @@
-<div class="card" *ngIf="card">
-    <table>
-        <tr>
-            <th>B</th>
-            <th>I</th>
-            <th>N</th>
-            <th>G</th>
-            <th>O</th>
-        </tr>
-        <tr *ngFor="let row of card.numbers">
-            <td *ngFor="let n of row">{{n}}</td>
-        </tr>
-    </table>
+<player-count></player-count>
+<game-status></game-status>
+<last-called></last-called>
+<winner></winner>
+<div class="cards" *ngIf="player">
+    <bingo-card [card]="card" *ngFor="let card of bingoCards"></bingo-card>
 </div>
