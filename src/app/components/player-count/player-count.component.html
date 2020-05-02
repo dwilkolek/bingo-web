@@ -1,5 +1,3 @@
-<h6>Player Count</h6>
-<p *ngIf="lastPlayerCountMessage">
-    Online players: {{lastPlayerCountMessage.online}} <br />
-    Total players: {{lastPlayerCountMessage.total}}<br />
-</p>
+<ng-template [ngIf]="lastPlayerCountMessage">
+    <b>Players: </b>{{lastPlayerCountMessage.online}}/{{lastPlayerCountMessage.total}}
+</ng-template>

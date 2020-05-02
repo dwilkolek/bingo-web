@@ -1,20 +1,17 @@
-<div class="card" *ngIf="card">
-    <div class="">{{card.id}}</div>
-    <div class="header row">
-        <div class="letter">B</div>
-        <div class="letter">I</div>
-        <div class="letter">N</div>
-        <div class="letter">G</div>
-        <div class="letter">O</div>
+<div class="bing-card" *ngIf="card" [class.horizontal]="horizontal">
+    <div class="bing-card-header row">
+        <div class="letter noselect" *ngFor="let letter of letters">{{letter}}</div>
     </div>
-    <div class="body">
+    <div class="bing-card-body">
         <div class="row" *ngFor="let row of card.numbers;index as rowIndex">
             <bingo-cell [cell]="cell" *ngFor="let cell of row;index as cellIndex" (click)="mark(rowIndex, cellIndex)"></bingo-cell>
-        </div>
-        
+        </div>        
     </div>
-    <div class="footer">
-        <button (click)="bingo()" *ngIf="card.id">BINGO!</button>
+    <div class="bing-card-footer">
+        <button class="bingo noselect" (click)="bingo()" *ngIf="card.id">BINGO!</button>
+
+        
+        <div class="bing-card-id" *ngIf="card.id">ID: {{card.id}}</div>
     </div>
 
 

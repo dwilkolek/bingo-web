@@ -5,7 +5,7 @@ import { SocketioService } from 'src/app/socketio.service';
 @Component({
   selector: 'player-count',
   templateUrl: './player-count.component.html',
-  styleUrls: ['./player-count.component.less']
+  styleUrls: ['./player-count.component.scss']
 })
 export class PlayerCountComponent implements OnInit {
 

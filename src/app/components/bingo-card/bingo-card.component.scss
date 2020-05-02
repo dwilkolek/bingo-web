@@ -1,0 +1,54 @@
+.bing-card {
+    padding: 10px;
+    background: rgb(255, 249, 224);
+    border: 1px solid #666;
+    margin: 10px;
+    width: fit-content;
+    >div {
+        width: 100%;
+    }
+    &.horizontal {
+        display: flex;
+        .bing-card-header {
+            display: flex;
+            flex-flow: column;
+        }
+        .bing-card-body {
+            display: flex;
+        }
+
+        .row {
+            display: flex;
+            flex-flow: column;       
+            .letter { 
+                height: 38px;
+            }     
+        }
+        
+    }
+    .bing-card-id {
+        text-align: center;
+        font-size: 12px;
+    }
+    .bing-card-header {
+        margin-bottom: 10px;
+    }
+    .bing-card-footer {
+        display: flex;
+        flex-direction: column;
+        margin-top: 10px;
+        button {
+            cursor: pointer;
+        }
+    }
+    .row {
+        display: flex;        
+        .letter {
+            width: 36px;
+            line-height: 30px;
+            font-size: 30px;
+            text-align: center;
+            font-family: 'Corben', cursive;
+        }
+    }
+}

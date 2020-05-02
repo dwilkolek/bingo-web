@@ -9,7 +9,7 @@ import { BingoCard, BingoCell } from 'src/model/bingo-card';
 @Component({
   selector: 'app-operator',
   templateUrl: './operator.component.html',
-  styleUrls: ['./operator.component.less']
+  styleUrls: ['./operator.component.scss']
 })
 export class OperatorComponent {
 

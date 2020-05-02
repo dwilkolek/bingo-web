@@ -1,24 +1,31 @@
+<div class="columns">
+    <div class="column">
+        <h2 class="title">Create the game</h2>
 
-<hr />
-<input #gameName type="text" placeholder="game name" />
-<button (click)="createGame(gameName.value)">Create game</button>
-<hr />
-<table>
-    <tr>
-        <th>Name</th>
-        <th>Status</th>
-        <th>Players</th>
-        <th>Join</th>
-    </tr>
-    <tr *ngFor="let game of games | async">
-        <td>{{game.name}}</td>
-        <td>{{game.status}}</td>
-        <td>{{game.players}}</td>
-        <td><a href="#" *ngIf="game.status == 'WAITING_FOR_PLAYERS'" (click)="subscribe(game.id)">join</a></td>
-    </tr>
-</table>
-<!-- <ul>
-    <li *ngFor="let game of games | async">
-        <a href="#" (click)="subscribe(game.id)">{{game.name}}</a>
-    </li>
-</ul> -->
+        <div class="field">
+            <label class="label">Game name</label>
+            <div class="control">
+                <input class="input" #gameName type="text" placeholder="Name of the game" />
+            </div>
+        </div>
+        
+        <button class="button is-link" (click)="createGame(gameName.value)">Create game</button>
+    </div>
+    <div class="column">
+        <h2 class="title">Join existing game</h2>
+        <table  class="table">
+            <tr>
+                <th><abbr title="Name">Name</abbr></th>
+                <th><abbr title="Status">Status</abbr></th>
+                <th><abbr title="Players">Players</abbr></th>
+                <th><abbr title="Join">Join</abbr></th>
+            </tr>
+            <tr *ngFor="let game of games | async">
+                <td>{{game.name}}</td>
+                <td>{{game.status}}</td>
+                <td>{{game.playersCount}}</td>
+                <td><a href="#" *ngIf="game.status == 'WAITING_FOR_PLAYERS'" (click)="subscribe(game.id)">join</a></td>
+            </tr>
+        </table>
+    </div>
+</div>

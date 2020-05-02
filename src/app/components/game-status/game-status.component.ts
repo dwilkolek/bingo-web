@@ -4,7 +4,7 @@ import { SocketioService } from 'src/app/socketio.service';
 @Component({
   selector: 'game-status',
   templateUrl: './game-status.component.html',
-  styleUrls: ['./game-status.component.less']
+  styleUrls: ['./game-status.component.scss']
 })
 export class GameStatusComponent implements OnInit {
 

@@ -14,6 +14,7 @@ import { BingoCellComponent } from './components/bingo-cell/bingo-cell.component
 import { BingoCardComponent } from './components/bingo-card/bingo-card.component';
 import { WinnerComponent } from './components/winner/winner.component';
 import { SocketServiceSetupResolverService } from './socket-service-setup-resolver.service';
+import { GameSidebarComponent } from './components/game-sidebar/game-sidebar.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { SocketServiceSetupResolverService } from './socket-service-setup-resolv
     LastCalledComponent,
     BingoCellComponent,
     BingoCardComponent,
-    WinnerComponent
+    WinnerComponent,
+    GameSidebarComponent
   ],
   imports: [
     BrowserModule,

@@ -5,13 +5,17 @@ import { SocketioService } from 'src/app/socketio.service';
 @Component({
   selector: 'bingo-card',
   templateUrl: './bingo-card.component.html',
-  styleUrls: ['./bingo-card.component.less']
+  styleUrls: ['./bingo-card.component.scss']
 })
 export class BingoCardComponent implements OnInit {
 
   @Input()
   card: BingoCard;
 
+  @Input()
+  horizontal: boolean = false;
+
+  letters = ['B', 'I', 'N', 'G', 'O'];
   constructor(private socket: SocketioService) { }
 
   ngOnInit(): void {

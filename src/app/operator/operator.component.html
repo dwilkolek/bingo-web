@@ -1,11 +1,7 @@
-<h3>Operator</h3>
-
-<player-count></player-count>
-
 <div class="game" *ngIf="game">
-    <game-status></game-status>
-    <last-called></last-called>
-    <button type="button" *ngIf="game.status === 'WAITING_FOR_PLAYERS'" (click)="start()">START</button>
-    <button type="button" (click)="operatorCall()">CALL</button>
-    <bingo-card [card]="bingoCard"></bingo-card>
+
+    <button class="bingo noselect" type="button" *ngIf="game.status === 'WAITING_FOR_PLAYERS'" (click)="start()">Let's start the game</button>
+    <button class="bingo noselect" type="button" (click)="operatorCall()">Callout next number</button>
+    <bingo-card [horizontal]="true" [card]="bingoCard"></bingo-card>
 </div>
+<game-sidebar></game-sidebar>

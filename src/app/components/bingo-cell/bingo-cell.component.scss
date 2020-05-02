@@ -1,0 +1,15 @@
+:host {
+    cursor: pointer;
+}
+.bingo-cell {
+    // line-height: 40px;
+    // font-size: 30px;
+    text-align: center;
+    width: 36px;
+    line-height: 36px;
+    font-weight: bold;
+    border: 1px solid #888;
+    &.marked {
+        color: red;
+    }
+}

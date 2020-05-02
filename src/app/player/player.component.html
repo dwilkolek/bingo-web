@@ -1,7 +1,4 @@
-<player-count></player-count>
-<game-status></game-status>
-<last-called></last-called>
-<winner></winner>
 <div class="cards" *ngIf="player">
     <bingo-card [card]="card" *ngFor="let card of bingoCards"></bingo-card>
 </div>
+<game-sidebar></game-sidebar>

@@ -5,7 +5,7 @@ import { Player } from 'src/model/player';
 @Component({
   selector: 'winner',
   templateUrl: './winner.component.html',
-  styleUrls: ['./winner.component.less']
+  styleUrls: ['./winner.component.scss']
 })
 export class WinnerComponent implements OnInit {
 
@@ -15,12 +15,15 @@ export class WinnerComponent implements OnInit {
   }
   isItYou = false;
 
-  constructor(private socket: SocketioService) { }
+  constructor(public socket: SocketioService) { }
 
   ngOnInit(): void {
     this.socket.onWinnerAnnouncement(winner => {
-      this.winner = winner
-      this.isItYou = this.socket.playerId === winner.playerId
+      if (winner) {
+        this.winner = winner
+        console.log()
+        this.isItYou = this.socket.playerId === winner.player.id
+      }
     })
     this.socket.getWinner();
   }

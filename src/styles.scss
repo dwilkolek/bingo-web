@@ -1,0 +1,40 @@
+/* You can add global styles to this file, and also import other style files */
+@charset "utf-8";
+
+@import url('https://fonts.googleapis.com/css2?family=Corben:wght@700&display=swap');
+
+$color1: #308CB3;
+$color2: #FF0A34;
+$color3: #5ECFFF ;
+$color4: #FFF41F;
+$color5: #BDB51E;
+
+$bingoButtonBorder: $color1;
+$bingoButtonBackground: $color3;
+$bingoButtonColor: $color4;
+
+$primary: $color2;
+$background: $color1;
+@import "../node_modules/bulma/bulma.sass";
+.hero.is-primary .title {
+    color: $color4;
+    font-family: 'Corben', cursive;
+}
+
+button.bingo {
+    font-family: 'Corben', cursive;
+    color: $bingoButtonColor;
+    border-color: $bingoButtonBorder;
+    background: $bingoButtonBackground;
+    margin: 2px;
+}
+
+.noselect {
+    -webkit-touch-callout: none; /* iOS Safari */
+      -webkit-user-select: none; /* Safari */
+       -khtml-user-select: none; /* Konqueror HTML */
+         -moz-user-select: none; /* Old versions of Firefox */
+          -ms-user-select: none; /* Internet Explorer/Edge */
+              user-select: none; /* Non-prefixed version, currently
+                                    supported by Chrome, Opera and Firefox */
+  }
