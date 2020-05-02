@@ -16,7 +16,7 @@ export class OperatorComponent {
 
   constructor(private service: BingoService, private route: ActivatedRoute) {
 
-    
+
 
 
     this.route.paramMap.subscribe(params => {
@@ -25,7 +25,7 @@ export class OperatorComponent {
     });
 
     for (var i = 1; i <= 15; i++) {
-      const row = [i, i+15, i+30, i+45, i+60]
+      const row = [i, i + 15, i + 30, i + 45, i + 60]
       this.opts.push(row);
     }
   }
@@ -34,8 +34,10 @@ export class OperatorComponent {
 
   }
 
-  call(operatorCall: number) {
-
+  operatorCall(operatorCall: number) {
+    this.service.operatorCall(this.gameId, this.operatorHash, operatorCall).subscribe(r => {
+      console.log(r);
+    })
   }
 
 }

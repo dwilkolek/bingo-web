@@ -10,7 +10,7 @@
             <th>O</th>
         </tr>
         <tr *ngFor="let row of opts">
-            <td *ngFor="let r of row">
+            <td *ngFor="let r of row" (click)="operatorCall(r)">
                 {{r}}
             </td>
         </tr>

@@ -30,4 +30,10 @@ export class BingoService {
   card(gameId: string, cardId: string): Observable<BingoCard> {
     return this.http.get<BingoCard>(`${BingoService.API}/${gameId}/${BingoService.CARD}/${cardId}`);
   }
+
+  operatorCall(gameId: string, operatorHash: string, operatorCall: number) {
+    return this.http.post<string>(`${BingoService.API}/${gameId}/call`, {
+      operatorHash, operatorCall
+    });
+  }
 }

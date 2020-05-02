@@ -21,7 +21,7 @@ import { PlayerComponent } from './player/player.component';
     RouterModule.forRoot([
       { path: '', component: MainComponent },
       { path: 'player/:gameId/:cardId', component: PlayerComponent },
-      { path: 'operator/:gameId/:cardId', component: OperatorComponent },
+      { path: 'operator/:gameId/:operatorHash', component: OperatorComponent },
     ])
   ],
   providers: [],
