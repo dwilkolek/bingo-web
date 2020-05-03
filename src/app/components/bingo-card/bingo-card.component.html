@@ -8,10 +8,13 @@
         </div>        
     </div>
     <div class="bing-card-footer">
-        <button class="bingo noselect" (click)="bingo()" *ngIf="card.id">BINGO!</button>
+        <ng-template [ngIf]="card.id">
+            <button class="bingo noselect" (click)="bingo(pattern)" *ngFor="let pattern of card.availablePatterns">{{pattern}}</button>
+        </ng-template>
+        
 
         
-        <div class="bing-card-id" *ngIf="card.id">ID: {{card.id}}</div>
+        <!-- <div class="bing-card-id" *ngIf="card.id">ID: {{card.id}}</div> -->
     </div>
 
 

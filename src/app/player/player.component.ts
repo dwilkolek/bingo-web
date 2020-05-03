@@ -37,7 +37,4 @@ export class PlayerComponent {
     });
   }
 
-  callBingo(cardId) {
-    this.socket.bingo(cardId);
-  }
 }

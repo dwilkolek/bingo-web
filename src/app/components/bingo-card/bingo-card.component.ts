@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { BingoCard } from 'src/model/bingo-card';
 import { SocketioService } from 'src/app/socketio.service';
+import { PATTERN_NAMES } from 'src/model/constants';
 
 @Component({
   selector: 'bingo-card',
@@ -28,9 +29,9 @@ export class BingoCardComponent implements OnInit {
     }    
   }
 
-  bingo() {
+  bingo(pattern: PATTERN_NAMES) {
     if (this.card && this.card.id) {
-      this.socket.bingo(this.card.id)
+      this.socket.bingo(this.card.id, pattern)
     }
   }
 }

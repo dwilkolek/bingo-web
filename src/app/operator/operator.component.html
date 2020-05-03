@@ -1,7 +1,13 @@
-<div class="game" *ngIf="game">
+<game-topbar *ngIf="game" [game]="game"></game-topbar>
+<div class="playground-wrapper" *ngIf="game">
+    <game-sidebar [game]="game">
+        <button class="bingo noselect" type="button" *ngIf="game.status === 'WAITING_FOR_PLAYERS'"
+            (click)="start()">Let's
+            start the game</button>
+        <button class="bingo noselect" type="button" (click)="operatorCall()">Callout next number</button>
+    </game-sidebar>
+    <div *ngIf="game" class="playground" style="text-align: center;">
+        <bingo-card [horizontal]="true" [card]="bingoCard"></bingo-card>
+    </div>
 
-    <button class="bingo noselect" type="button" *ngIf="game.status === 'WAITING_FOR_PLAYERS'" (click)="start()">Let's start the game</button>
-    <button class="bingo noselect" type="button" (click)="operatorCall()">Callout next number</button>
-    <bingo-card [horizontal]="true" [card]="bingoCard"></bingo-card>
 </div>
-<game-sidebar></game-sidebar>

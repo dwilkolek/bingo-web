@@ -38,3 +38,14 @@ button.bingo {
               user-select: none; /* Non-prefixed version, currently
                                     supported by Chrome, Opera and Firefox */
   }
+
+  .playground-wrapper {
+    display: flex; 
+    flex-direction: row-reverse;
+    game-sidebar {
+        width: 350px;
+    }
+    .playground {
+        width: calc(100vw - 350px);
+    }
+  }

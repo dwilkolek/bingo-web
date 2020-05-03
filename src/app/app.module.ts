@@ -14,6 +14,8 @@ import { BingoCellComponent } from './components/bingo-cell/bingo-cell.component
 import { BingoCardComponent } from './components/bingo-card/bingo-card.component';
 import { WinnerComponent } from './components/winner/winner.component';
 import { SocketServiceSetupResolverService } from './socket-service-setup-resolver.service';
+import { GameTopBarComponent } from './components/game-topbar/game-topbar.component';
+import { PointsComponent } from './components/points/points.component';
 import { GameSidebarComponent } from './components/game-sidebar/game-sidebar.component';
 
 @NgModule({
@@ -28,6 +30,8 @@ import { GameSidebarComponent } from './components/game-sidebar/game-sidebar.com
     BingoCellComponent,
     BingoCardComponent,
     WinnerComponent,
+    GameTopBarComponent,
+    PointsComponent,
     GameSidebarComponent
   ],
   imports: [

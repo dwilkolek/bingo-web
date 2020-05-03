@@ -10,7 +10,7 @@ import { Player } from 'src/model/player';
 export class WinnerComponent implements OnInit {
 
   winner: {
-    cardId: string,
+    scorePoints: any[],
     player: Player
   }
   isItYou = false;
@@ -18,11 +18,11 @@ export class WinnerComponent implements OnInit {
   constructor(public socket: SocketioService) { }
 
   ngOnInit(): void {
-    this.socket.onWinnerAnnouncement(winner => {
-      if (winner) {
-        this.winner = winner
+    this.socket.onWinnerAnnouncement(winnerMessage => {
+      if (winnerMessage) {
+        this.winner = winnerMessage
         console.log()
-        this.isItYou = this.socket.playerId === winner.player.id
+        this.isItYou = this.socket.playerId === winnerMessage.player.id
       }
     })
     this.socket.getWinner();

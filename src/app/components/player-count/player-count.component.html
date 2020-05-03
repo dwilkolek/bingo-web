@@ -1,3 +1,4 @@
-<ng-template [ngIf]="lastPlayerCountMessage">
-    <b>Players: </b>{{lastPlayerCountMessage.online}}/{{lastPlayerCountMessage.total}}
-</ng-template>
+<div *ngIf="lastPlayerCountMessage">
+    <p class="heading">Players</p>
+    <p class="title">{{lastPlayerCountMessage.total}}({{lastPlayerCountMessage.online}} online)</p>
+</div>

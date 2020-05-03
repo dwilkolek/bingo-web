@@ -1,15 +1,26 @@
-<aside class="panel">
-    <div class="panel-block">
-        <player-count></player-count>
+<aside *ngIf="game">
+    <div class="game-specification">
+        <p class="heading">Win condition</p>
+        <p class="title">{{game.winnerResolution}}</p>
     </div>
-    <div class="panel-block">
-        <game-status></game-status>
+    <hr />
+    <div class="game-specification">
+        <p class="heading">End condition</p>
+        <p class="title">{{game.finishingPattern}}</p>
     </div>
-    <div class="panel-block">
-        <last-called></last-called>
+    <hr />
+    <div class="game-specification">
+        <p class="heading">Cards per player</p>
+        <p class="title">{{game.cardLimit}}</p>
     </div>
-    <div class="panel-block">
-        <winner></winner>
+
+    <hr />
+    <div class="game-specification">
+        <p class="heading">Winner</p>
+        <p class="title"><winner></winner></p>
     </div>
+    
+    <hr /><hr />
+    <ng-content></ng-content>
 
 </aside>

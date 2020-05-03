@@ -1,0 +1,6 @@
+<nav class="level container">
+    <player-count class="level-item has-text-centered"></player-count>
+    <last-called class="level-item has-text-centered"></last-called>
+    <points *ngIf="isPlayer && game && game.winnerResolution == 'POINTS'" class="level-item has-text-centered"></points>
+    <game-status class="level-item has-text-centered"></game-status>
+</nav>

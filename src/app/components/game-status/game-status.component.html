@@ -1,1 +1,4 @@
-<b>Game status: </b>{{gameStatus}}
+<div *ngIf="gameStatus">
+    <p class="heading">Game status</p>
+    <p class="title">{{gameStatus}}</p>
+</div>

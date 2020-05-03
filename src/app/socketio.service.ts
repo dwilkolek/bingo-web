@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import * as io from 'socket.io-client';
 import { environment } from 'src/environments/environment';
 import { PlayerCount } from 'src/model/player-count';
+import { PATTERN_NAMES } from 'src/model/constants';
 
 @Injectable({
   providedIn: 'root'
@@ -26,8 +27,8 @@ export class SocketioService {
     this.socket.emit('toggle-mark', { cardId, row, col });
   }
 
-  bingo(cardId: string) {
-    this.socket.emit('bingo', cardId);
+  bingo(cardId: string, pattern: PATTERN_NAMES) {
+    this.socket.emit('bingo', { cardId, pattern });
   }
 
   joinAsOperator(gameId: string, operatorHash: string) {
@@ -52,6 +53,10 @@ export class SocketioService {
   getLastCall() {
     this.socket.emit('get-last-call')
   }
+  getPoints() {
+    this.socket.emit('get-points')
+  }
+  
   
   onPlayerCount(cb) {
     this.socket.on('player-count', cb)
@@ -64,7 +69,9 @@ export class SocketioService {
   onWinnerAnnouncement(cb) {
     this.socket.on('winner', cb)
   }
-
+  onPoints(cb) {
+    this.socket.on('points', cb)
+  }
   startGame() {
     this.socket.emit('start-game')
   }

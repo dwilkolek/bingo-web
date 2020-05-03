@@ -17,8 +17,7 @@ export class LastCalledComponent implements OnInit {
       this.lastCall = call;
       this.playAudio();
     })
-    this.socket.getLastCall();
-    
+    this.socket.getLastCall();    
   }
 
   

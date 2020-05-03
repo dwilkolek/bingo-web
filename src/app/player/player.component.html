@@ -1,4 +1,7 @@
-<div class="cards" *ngIf="player">
-    <bingo-card [card]="card" *ngFor="let card of bingoCards"></bingo-card>
+<game-topbar [game]="game" [isPlayer]="true"></game-topbar>
+<div class="playground-wrapper" *ngIf="game">
+    <game-sidebar [game]="game"></game-sidebar>
+    <div class="playground cards" *ngIf="player">
+        <bingo-card [card]="card" *ngFor="let card of bingoCards"></bingo-card>
+    </div>    
 </div>
-<game-sidebar></game-sidebar>

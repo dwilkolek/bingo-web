@@ -1,0 +1,16 @@
+export enum STATUS {
+    WAITING_FOR_PLAYERS = 'WAITING_FOR_PLAYERS',
+    STARTED = 'STARTED',
+    FINISHED = 'FINISHED',
+}
+
+export enum WINNER_RESOLUTION {
+    POINTS = 'POINTS',
+    PATTERN = 'PATTERN',
+}
+
+export enum PATTERN_NAMES {
+    ONE_LINE = 'ONE_LINE',
+    TWO_LINE = 'TWO_LINE',
+    FULL_HOUSE = 'FULL_HOUSE',
+}

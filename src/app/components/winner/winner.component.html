@@ -1,13 +1,19 @@
-
-<b>Winner:</b> <br />
-<ng-template [ngIf]="winner">
+<ng-template [ngIf]="winner && winner.player">
     <ng-template [ngIf]="isItYou"><b>You are the winner!</b></ng-template>
     <ng-template [ngIf]="!isItYou">You are <b>not</b> the winner!</ng-template>
-    <br />
-    Winners ID:{{ winner.player.id }}<br />
-    Winners Name: {{winner.player.name}}<br />
-    Winners Card ID: {{winner.cardId}}<br />
+    <p style="font-size: 16px;">
+        Winner:<br />
+        &nbsp;&nbsp;ID:{{ winner.player.id }} <br />
+        &nbsp;&nbsp;Name: {{winner.player.name}}<br />
+    </p>
+    <ng-template [ngIf]="winner && winner.scorePoints">
+        <hr />
+        <div class="tags has-addons" *ngFor="let score of winner.scorePoints">
+            <span class="tag is-info">{{score.name}}</span>
+            <span class="tag is-dark">{{score.points}}</span>
+        </div>
+    </ng-template>
 </ng-template>
 <ng-template [ngIf]="!winner">
-    There's no winner. It might be you :)
+    Not decided yet
 </ng-template>

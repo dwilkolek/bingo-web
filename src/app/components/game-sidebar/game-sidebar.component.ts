@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Game } from 'src/model/game';
 
 @Component({
   selector: 'game-sidebar',
@@ -6,6 +7,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./game-sidebar.component.scss']
 })
 export class GameSidebarComponent implements OnInit {
+
+  @Input()
+  game: Game;
 
   constructor() { }
 
