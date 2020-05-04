@@ -14,7 +14,6 @@ export class PointsComponent implements OnInit {
 
   ngOnInit(): void {
     this.socket.onPoints(points => {
-      console.log('points', points)
       this.points = points;
     })
     this.socket.getPoints();

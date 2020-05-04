@@ -20,6 +20,11 @@ export class BingoCardComponent implements OnInit {
   constructor(private socket: SocketioService) { }
 
   ngOnInit(): void {
+    this.socket.onStrike((strike:BingoCard) => {
+       if (strike.id === this.card.id) {
+          this.card = strike;
+       }
+    })
   }
 
   mark(row, col) {
@@ -29,9 +34,9 @@ export class BingoCardComponent implements OnInit {
     }    
   }
 
-  bingo(pattern: PATTERN_NAMES) {
-    if (this.card && this.card.id) {
-      this.socket.bingo(this.card.id, pattern)
+  bingo() {
+    if (this.card && this.card.id && !this.card.banned) {
+      this.socket.bingo(this.card.id)
     }
   }
 }

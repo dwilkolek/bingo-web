@@ -6,6 +6,9 @@ export class BingoCard {
     points: number = 0;
     patternsChecked: PATTERN_NAMES[];
     availablePatterns: PATTERN_NAMES[];
+    maxStrikes: number;
+    striked: number;
+    banned: boolean;
 }
 
 export class BingoCell {   

@@ -21,8 +21,8 @@ export class BingoService {
     return this.http.get<Game[]>(BingoService.API);
   }
 
-  createGame(name: string, pattern: PATTERN_NAMES, winBy: WINNER_RESOLUTION, cardLimit: number): Observable<Game> {
-    return this.http.post<Game>(BingoService.API, { name, pattern, winBy, cardLimit });
+  createGame(name: string, pattern: PATTERN_NAMES, winBy: WINNER_RESOLUTION, cardLimit: number, asOperator: boolean): Observable<Game> {
+    return this.http.post<Game>(BingoService.API, { name, pattern, winBy, cardLimit, asOperator: asOperator });
   }
 
   subscribe(playerName: string, gameId: string): Observable<Player> {

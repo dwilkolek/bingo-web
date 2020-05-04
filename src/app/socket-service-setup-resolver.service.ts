@@ -10,7 +10,6 @@ export class SocketServiceSetupResolverService implements Resolve<boolean>{
 
   constructor(private socket: SocketioService) { }
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
-    console.log(route.params)
     if (route.params.playerId) {
       this.socket.joinAsPlayer(route.params.gameId, route.params.playerId)
     } else if (route.params.operatorHash){

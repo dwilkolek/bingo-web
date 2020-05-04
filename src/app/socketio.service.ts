@@ -27,8 +27,8 @@ export class SocketioService {
     this.socket.emit('toggle-mark', { cardId, row, col });
   }
 
-  bingo(cardId: string, pattern: PATTERN_NAMES) {
-    this.socket.emit('bingo', { cardId, pattern });
+  bingo(cardId: string) {
+    this.socket.emit('bingo', { cardId });
   }
 
   joinAsOperator(gameId: string, operatorHash: string) {
@@ -57,7 +57,9 @@ export class SocketioService {
     this.socket.emit('get-points')
   }
   
-  
+  onStrike(cb) {
+    this.socket.on('strike', cb);
+  }
   onPlayerCount(cb) {
     this.socket.on('player-count', cb)
   }

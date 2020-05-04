@@ -20,16 +20,26 @@ export class MainComponent implements OnInit {
   winByOptions = Object.keys(WINNER_RESOLUTION);
 
   constructor(private service: BingoService, private router: Router) {
-    this.games = this.service.games();
+    this.refresh();
   }
 
 
   ngOnInit(): void {
   }
 
-  createGame(name: string, pattern: string, winBy: string, cardLimit: number) {
-    this.service.createGame(name, PATTERN_NAMES[pattern], WINNER_RESOLUTION[winBy], cardLimit).subscribe((game: Game) => {
-      this.router.navigate([`/operator/${game.id}/${game.operatorHash}`]);
+  refresh() {
+    this.games = this.service.games();
+  }
+
+  createGame(name: string, pattern: string, winBy: string, cardLimit: number, playerName: string, asOperator: boolean) {
+    this.service.createGame(name, PATTERN_NAMES[pattern], WINNER_RESOLUTION[winBy], cardLimit, asOperator).subscribe((game: Game) => {
+      if (game.operatorHash) {
+        this.router.navigate([`/operator/${game.id}/${game.operatorHash}`]);
+      } else {
+        this.service.subscribe(playerName, game.id).subscribe((player: Player) => {
+          this.router.navigate([`/player/${game.id}/${player.id}`]);
+        });
+      }
     });
   }
 

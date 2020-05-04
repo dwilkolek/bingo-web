@@ -21,8 +21,7 @@ export class WinnerComponent implements OnInit {
     this.socket.onWinnerAnnouncement(winnerMessage => {
       if (winnerMessage) {
         this.winner = winnerMessage
-        console.log()
-        this.isItYou = this.socket.playerId === winnerMessage.player.id
+        this.isItYou = winnerMessage.player && this.socket.playerId ===  winnerMessage.player.id
       }
     })
     this.socket.getWinner();

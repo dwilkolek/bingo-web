@@ -4,6 +4,9 @@
     border: 1px solid #666;
     margin: 10px;
     width: fit-content;
+    &.banned {
+        filter: grayscale(100%);
+    }
     >div {
         width: 100%;
     }

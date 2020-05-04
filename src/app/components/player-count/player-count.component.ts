@@ -16,7 +16,6 @@ export class PlayerCountComponent implements OnInit {
 
   ngOnInit(): void {
     this.socket.onPlayerCount((msg) => {
-      console.log('message', msg)
       this.lastPlayerCountMessage = msg;
     })
     this.socket.getPlayerCount();

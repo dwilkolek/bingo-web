@@ -13,7 +13,8 @@
                 <div class="field">
                     <label class="label">BINGO cards per player</label>
                     <div class="control">
-                        <input class="input" #cardLimit type="number" min="1" placeholder="BINGO cards per player" value="1" />
+                        <input class="input" #cardLimit type="number" min="1" placeholder="BINGO cards per player"
+                            value="1" />
                     </div>
                 </div>
 
@@ -35,14 +36,22 @@
                     </div>
                 </div>
 
+                <div class="field">
+                    <label class="label"></label>
+                    <label class="checkbox">
+                        <input type="checkbox" #asOperator>
+                        Join as operator
+                    </label>
+                </div>
+
 
 
                 <button class="button is-link"
-                    (click)="createGame(gameName.value, pattern.value, winBy.value, cardLimit.value)">Create
+                    (click)="createGame(gameName.value, pattern.value, winBy.value, cardLimit.value, playerName.value, asOperator.checked)">Create
                     game</button>
             </div>
             <div class="column">
-                <h2 class="title">Join existing game</h2>
+                <h2 class="title">Join existing game</h2> <button (click)="refresh()">Refresh</button>
 
                 <div class="field">
                     <label class="label">Your name</label>

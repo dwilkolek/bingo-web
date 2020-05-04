@@ -62,7 +62,6 @@ export class OperatorComponent {
   }
 
   start() {
-    console.log('starting game')
     this.socket.startGame();
     this.game.status = 'STARTED';
   }

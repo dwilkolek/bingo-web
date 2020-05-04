@@ -1,4 +1,4 @@
-<div class="bing-card" *ngIf="card" [class.horizontal]="horizontal">
+<div class="bing-card" *ngIf="card" [class.horizontal]="horizontal" [class.banned]="card.banned">
     <div class="bing-card-header row">
         <div class="letter noselect" *ngFor="let letter of letters">{{letter}}</div>
     </div>
@@ -8,12 +8,13 @@
         </div>        
     </div>
     <div class="bing-card-footer">
-        <ng-template [ngIf]="card.id">
-            <button class="bingo noselect" (click)="bingo(pattern)" *ngFor="let pattern of card.availablePatterns">{{pattern}}</button>
-        </ng-template>
-        
 
-        
+        <ng-template [ngIf]="card.maxStrikes">
+            Strikes: {{card.striked}}/{{card.maxStrikes}}<br />
+        </ng-template>
+        <ng-template [ngIf]="card.id">
+            <button class="bingo noselect" (click)="bingo()" >BINGO!</button>
+        </ng-template>
         <!-- <div class="bing-card-id" *ngIf="card.id">ID: {{card.id}}</div> -->
     </div>
 
